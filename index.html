@@ -39,17 +39,100 @@ which python3
   </figure>
 
   <figure>
-    <figcaption>That should output the path at which Python is, here is what I got:</figcaption>
+    <figcaption>That should output the path at which Python is, here is what I got (it is fine if you do not have the same path):</figcaption>
     <pre><code>
 /usr/local/bin/python3
     </code></pre>
   </figure>
 
   <figure>
-    <figcaption>Navigate to that folder in Finder (Go > Go to Folder)</figcaption>
+    <figcaption>Navigate to that folder in Finder and delete the folder python3(Go > Go to Folder) Here are some images to help you:</figcaption>
     <img src="menuGo.png" alt="Go To" width="213" height="412">
     <img src="goToPrompt.png" alt="Go To" width="428" height="119">
   </figure>
 
+    <figure>
+      <figcaption>Go to your aplications folder as well and delete the Python folder. Then, empty your trash.</figcaption>
+    </figure>
+
+    <figure>
+      <figcaption>Use Homebrew to then check if Python is still installed. If it is, then check the version. If the version is Python 2.7 something, you can ignore it as it is the system version. Otherwise checkif the above steps were completed correctly.</figcaption>
+      <pre><code>
+brew list | grep python
+      </code></pre>
+      <pre><code>
+brew info python
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>That should output the path at which Python is, here is what I got (it is fine if you do not have the same path):</figcaption>
+      <pre><code>
+/usr/local/bin/python3
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>The source of some of the problems you have with Python is probably because of the system Python. However yoou do not want the Mac OS X 'default Python' to be 'python3.' You want to never care about default Python. To do this we are going to use a package called pyenv which will manage your Python enviroments. We will install it using Homebrew and then add the initilaizer to the startup code and reload it.</figcaption>
+      <pre><code>
+brew install pyenv
+      </code></pre>
+      <pre><code>
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+      </code></pre>
+      <pre><code>
+source ~/.bash_profile
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>After that you are going to want to install Python 3.8.0 (the latest version as of this writing), properly this time using pyenv</figcaption>
+      <pre><code>
+pyenv install 3.8.0
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>If you get some error saying that you are missing zlib. Follow these instructions and then return:</figcaption>
+      <pre><code>
+https://github.com/pyenv/pyenv/wiki/common-build-problems#build-failed-error-the-python-zlib-extension-was-not-compiled-missing-the-zlib
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>Now that we’ve installed Python 3.8.0 let’s take a look at all the installed versions available on our system:</figcaption>
+      <pre><code>
+pyenv versions
+      </code></pre>
+      <figcaption>You should see system and 3.8.0</figcaption>
+    </figure>
+
+    <figure>
+      <figcaption>After that your going to want to check the Global Python to see if it is the version you just installed. If it isn't then set it and then check it again.</figcaption>
+      <figcaption>To check:</figcaption>
+      <pre><code>
+pyenv global
+      </code></pre>
+      <figcaption>To set:</figcaption>
+      <pre><code>
+pyenv global 3.8.0
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>Restart your terminal window afterwards by quitting and then reopening. Then check if the python version has updated in terminal:</figcaption>
+      <pre><code>
+python --version
+      </code></pre>
+    </figure>
+
+    <figure>
+      <figcaption>You can then install PIL (pillow in python3) using pip, update afterwards if it prompts you to.</figcaption>
+      <pre><code>
+pip install pillow
+      </code></pre>
+    </figure>
+
+    <h3> Thats it! You should now have python and PIL working properly using any text editor such as jGrasp. If you are using an more-advance IDE like pyCharm or IntelliJ you will have to set the version it uses.</h3>
 </body>
 </html>
