@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>How to Install Python on Mac Properly</title>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="Testing">
+<style>
+pre, code {
+  font-family: monospace, monospace;
+}
+pre {
+  overflow: auto;
+}
+pre > code {
+  background-color: #E8E8E8;
+  display: block;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  border-radius: 10px 10px 10px 10px;
+  word-wrap: normal;
+}
+</style>
+</head>
+<body>
+  <figure>
+    <figcaption>Firstly, your going to want to install Homebrew, a package manager (skip this step if you already have it), by opening up a new terminal window and typing in:</figcaption>
+    <pre><code>
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    </code></pre>
+  </figure>
+
+  <figure>
+    <figcaption>Secondly, if you have already attempted to install Python before your going to want to uninstall it. Assuming that you installed Python 3 your going to want to type in:</figcaption>
+    <pre><code>
+which python3
+    </code></pre>
+  </figure>
+
+  <figure>
+    <figcaption>That should output the path at which python is, here is what I got:</figcaption>
+    <pre><code>
+/usr/local/bin/python3
+    </code></pre>
+  </figure>
+
+</body>
+</html>
